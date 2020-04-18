@@ -1,0 +1,3 @@
+{
+	"greetText": "来自json的loader,但webpack 2 3 4已经内置，不需要额外安装了"
+}

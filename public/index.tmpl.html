@@ -1,0 +1,26 @@
+<!-- 
+HtmlWebpackPlugin
+这个插件的作用是依据一个简单的index.html模板，生成一个自动引用你打包后的JS文件的新index.html。这在每次生成的js文件名称不同时非常有用（比如添加了hash值）。
+
+这个插件自动完成了我们之前手动做的一些事情，在正式使用之前需要对一直以来的项目结构做一些更改：
+
+利用此插件，index.html文件会自动生成，此外CSS已经通过前面的操作打包到JS中了，所以原index.html可以删除了
+在public目录下，创建一个index.tmpl.html文件模板，即本模板，这个模板包含title等必须元素，在编译过程中，插件会依据此模板生成最终的html页面，会自动添加所依赖的css,js，favicon等文件，并输出到 output 文件夹， module.output.path = _dirname + '/dist'
+
+作者：zhangwang
+链接：https://www.jianshu.com/p/42e11515c10f
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Webpack Sample Project From Tmpl</title>
+  </head>
+  <body>
+  	<p>22233</p>
+  	<span>这是个span</span>
+    <div id='root'>
+    </div>
+  </body>
+</html>

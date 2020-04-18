@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Webpack Sample Project</title>
+  </head>
+  <body>
+  	<p>22233</p>
+  	<span>这是个span</span>
+    <div id='root'>
+    </div>
+    <!-- 
+    	配置为src="../dist/bundle.js"时，访问js没问题，但修改完index.js,
+    	webpack触发recompile后，页面无法获取到最新的js内容，百度得到以下结果：
+		看index.html文件，发现引入的js文件是本项目的dist/bundle.js是磁盘上确确实实存在的文件，而我们webpack_dev_server的帮我们重新打包生成的bundle.js文件并没有存放到实际的物理磁盘上（因为是重新编译打包，所以是覆盖原文件bundle.js）；而是直接存放在电脑的内存中，所以我们这里的问题很简单解决，直接把src="…/dist/bundle.js"改成src="/bundle.js"即可，src="/bundle.js"中的bundle.js不是从本项目导入的，而是从电脑内存导入的(解释：因为是webpack_dev_server部署服务器(使用内存空间)地址在localhost:8080,所以可以直接使用"/"来访问，所以“/bundle.js”是从内存导入的)，
+		————————————————
+		版权声明：本文为CSDN博主「JavaAlliance」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+		原文链接：https://blog.csdn.net/qq_40241957/java/article/details/98937736
+    -->
+    <script src="/bundle.js"></script> 
+  </body>
+</html>
